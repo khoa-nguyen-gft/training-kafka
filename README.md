@@ -52,3 +52,7 @@
 - Schema management with Apache Avro and the Confluent Schema Registry
 - Log compaction and compacted topics
 - Kafka Cluster management tools (e.g., Confluent Control Center, Kafka Manager)
+
+
+## References:
+- https://github.com/SciSpike/kafka-lab
