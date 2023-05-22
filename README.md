@@ -1,4 +1,4 @@
-# Apache Kafka Training: From Beginner to Advanced
+# Kafka for Banking: Server Configurations, Authentication, and Performance Optimization
 
 ## Setup:
 - [Developer Starter](labs/01-Verify-Installation/developer-starter.md) contains everything needed in order to get started Kafka.
