@@ -1,7 +1,7 @@
 # Apache Kafka Training: From Beginner to Advanced
 
 ## Setup:
-- [Developer Starter Pack](labs/01-Verify-Installation/hello-world-kafka.md) contains everything needed in order to get started Kafka.
+- [Developer Starter](labs/01-Verify-Installation/developer-starter.md) contains everything needed in order to get started Kafka.
 
 ## 1. Understand Kafka Basics
 - Familiarize yourself with the fundamental concepts of Apache Kafka, such as topics, partitions, producers, consumers, and brokers. Ensure you have a good understanding of how Kafka handles data ingestion and distribution.
