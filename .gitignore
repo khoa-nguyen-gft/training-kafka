@@ -1,0 +1,16 @@
+# Ignore compiled output
+/build/
+/dist/
+
+# Ignore dependencies
+/node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore editor files
+.vscode/
+.idea/
+
+
+labs/01-Verify-Installation/.data/
