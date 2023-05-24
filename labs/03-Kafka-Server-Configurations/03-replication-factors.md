@@ -19,7 +19,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka.example.com:9092  # Published addresses for clients to connect
       KAFKA_NUM_PARTITIONS: 3  # Number of partitions for new topics
       KAFKA_DEFAULT_REPLICATION_FACTOR: 2  # Default replication factor for new topics
-      volumes:
+    volumes:
        - "./.data/kafka_etc:/etc/kafka"
 
 ```

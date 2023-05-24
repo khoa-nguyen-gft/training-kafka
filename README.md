@@ -12,7 +12,7 @@
 
 ## 2. Kafka Server Configurations
 - Learn about the various server configurations that Kafka provides. This includes settings related to broker properties, replication factors, retention policies, compression, and message size limits. Explain how different configurations impact Kafka's performance and availability.
-    - [When do we need to config Kafka Server](labs/03-Kafka-Server-Configurations/01-when-config-kafka-server.md)
+    - [When Configuring Kafka Server](labs/03-Kafka-Server-Configurations/01-when-config-kafka-server.md)
     - [Broker Configurations](labs/03-Kafka-Server-Configurations/02-broker-configuration.md)
     - [Replication Factors](labs/03-Kafka-Server-Configurations/03-replication-factors.md)
     - [Retention Policies](labs/03-Kafka-Server-Configurations/04-retention-policies.md)
