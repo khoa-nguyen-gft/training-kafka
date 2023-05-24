@@ -61,3 +61,4 @@
 ## References:
     - https://github.com/SciSpike/kafka-lab
     - https://www.conduktor.io/kafka/starting-kafka/
+    - https://github.com/tshaiman/kafka-workshop
