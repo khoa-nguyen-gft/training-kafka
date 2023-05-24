@@ -5,6 +5,10 @@
 
 ## 1. Understand Kafka Basics
 - Familiarize yourself with the fundamental concepts of Apache Kafka, such as topics, partitions, producers, consumers, and brokers. Ensure you have a good understanding of how Kafka handles data ingestion and distribution.
+    - [Kafka Overview](labs/02-Understand-kafka-basic/2.1-overview-kafka/apache-kafka.md)
+    - [Brokers, Topics and Partitions](labs/02-Understand-kafka-basic/2.2-components/topics-and-partitions.md)
+    - [Producers and Consumers](labs/02-Understand-kafka-basic/2.3-producer-consumer/producers-and-consumers.md)
+
 
 ## 2. Kafka Server Configurations
 - Learn about the various server configurations that Kafka provides. This includes settings related to broker properties, replication factors, retention policies, compression, and message size limits. Explain how different configurations impact Kafka's performance and availability.
@@ -55,4 +59,5 @@
 
 
 ## References:
-- https://github.com/SciSpike/kafka-lab
+    - https://github.com/SciSpike/kafka-lab
+    - https://www.conduktor.io/kafka/starting-kafka/

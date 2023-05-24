@@ -37,6 +37,14 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
 
+  magic:
+    image: digitsy/kafka-magic
+    ports:
+      - "7070:80"
+    environment:
+      KMAGIC_ALLOW_TOPIC_DELETE: "true"
+      KMAGIC_ALLOW_SCHEMA_DELETE: "true"
+      
 volumes:
   zookeeper_data:
     driver: local
