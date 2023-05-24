@@ -18,7 +18,7 @@ previous    `KafkaProducer` lab so that there are messages ready in the Kafka se
 
 ## Instructions
 
-1. Open `consumer/src/main/java/com/example/Consumer.java` in your favorite text editor. Like the producer we saw in the
+1. Open [`Consumer.java`](../2.0-solution/producer-consumer/src/main/java/app/consumer/Consumer.java) in your favorite text editor. Like the producer we saw in the
    previous lab, this is a fairly simple Java class but can be expanded upon in a real application. For example, after
    processing the incoming records from Kafka, you would probably want to do something interesting like store them
    in [HBase](https://hbase.apache.org/) for later analysis. This application has two main responsibilities:
@@ -31,7 +31,7 @@ previous    `KafkaProducer` lab so that there are messages ready in the Kafka se
    a `KafkaProducer`. You can add these properties directly to code but a better solution is to externalize them in a
    properties file.
 
-2. Open `resources/consumer.properties` and you see that the required configuration is minimal like the producer.
+2. Open [`consumer.properties`](../2.0-solution/producer-consumer/src/main/resources/consumer.yaml) and you see that the required configuration is minimal like the producer.
 
     * `bootstrap.servers` is our required list of host/port pairs to connect to Kafka. In this case, we only have one
       server.
@@ -50,7 +50,7 @@ Like the producer, there
 are [many configuration options available for Kafka consumer](http://kafka.apache.org/documentation.html#consumerconfigs)
 that should be explored for a production environment.
 
-3. Open `consumer/src/main/java/com/example/Consumer.java` again. A consumer can subscribe to one ore more topics. In
+3. Open [`Consumer.java`](../2.0-solution/producer-consumer/src/main/java/app/consumer/Consumer.java) again. A consumer can subscribe to one ore more topics. In
    this lab, you can see that the consumer will listen to messages from two topics.
 
 4. Once the consumer has subscribed to the topics, the consumer then polls for new messages in an infinite loop.
@@ -63,36 +63,16 @@ that should be explored for a production environment.
    records. From there our example lab just uses a `switch` statement to process each type of topic. In a real
    application, you would do something more interesting here than output the results to `stdout`.
 
-5. Now we are ready to compile and run the lab. In a terminal, change to the `lab` directory and run the following
-   command:
+5. Now we are ready to compile and run the lab. In a terminal, change to the `lab` directory and run the java code.
 
-   ```shell
-   $ docker run -it --rm -v "$(cd "$PWD/../.."; pwd)":/course-root -w "/course-root/$(basename $(cd "$PWD/.."; pwd))/$(basename "$PWD")" -v "$HOME/.m2/repository":/root/.m2/repository maven:3-jdk-11 ./mvnw clean package
-   ```
+   ![kafka-client](04-kafka-client.png)
 
-  On a windows machine, you have to replace the `$PWD` with the current directory and the `$HOME` with a directory where you have the `.m2` folder.
-
-
-6. With the consumer now built, run it with the following command:
-
-     ```
-     $ docker run --network 02-publish-and-subscribe_default --rm -it -v "$PWD:/pwd" -w /pwd openjdk:11 java -jar target/pubsub-consumer-*.jar
-     SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-     SLF4J: Defaulting to no-operation (NOP) logger implementation
-     SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-     ...
-     ```
-
-   After the consumer has processed all of the messages, start the producer again in another terminal window and you
-   will see the consumer output the messages almost immediately. The consumer will run indefinitely until you
-   press `ctrl-c` in the terminal window.
-
-7. [OPTIONAL] Play with the performance.
+6. [OPTIONAL] Play with the performance.
    Before we shut down Kafka, you may want to spend some time playing with the perfomance of the programs. 
    We have created an optional lab for this which you can run here before going to step 8 and shutting down Kafka.
    Here is a link to the lab.
 
-8. Finally, change back into the `docker/` directory in order to shut down the Kafka and Zookeeper servers.
+7. Finally, change back into the `docker/` directory in order to shut down the Kafka and Zookeeper servers.
 
     ```
     $ docker-compose down

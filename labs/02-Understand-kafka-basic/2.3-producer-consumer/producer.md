@@ -33,10 +33,13 @@ and `labs/02-Understand-kafka-basic`
     $ docker-compose up
     ```
 
+    Access kafka-client client `http://localhost:7070/` and connect to kafka clusfer with the BootStrap Servers `kafka:9093`:
+
+    ![kafka-client](01-kafka-client.png)
+
 3. Open an additional terminal window in the lesson directory.
 
-4. Open `producer/src/main/java/app/Producer.java` in your text editor. This class is fairly simple Java application but
-   contains all the functionality necessary to operate as a Kafka Producer. The application has two main
+4. Open [`Producer.java`](../2.0-solution/producer-consumer/src/main/java/app/producer/Producer.java) in your text editor. This class is fairly simple Java application but contains all the functionality necessary to operate as a Kafka Producer. The application has two main
    responsibilities:
 
     * Initialize and configure
@@ -47,7 +50,7 @@ and `labs/02-Understand-kafka-basic`
    requires a set of properties for initialization. While it is possible to add the properties directly in Java code, a
    more likely scenario is that the configuration would be externalized in a properties file.
 
-   Open `resources/producer.properties` and you can see that the configuration is minimal.
+   Open [`producer.properties`](../2.0-solution//producer-consumer/src/main/resources/producer.yaml) and you can see that the configuration is minimal.
 
     * `acks` is the number of acknowledgments the producer requires the leader to have received before considering a
       request complete. This controls the durability of records that are sent. A setting of `all` is the strongest
@@ -79,35 +82,12 @@ and `labs/02-Understand-kafka-basic`
    that it is called. It is also possible to use a Kafka producer in
    a [try-with-resources statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html).
 
-6. Now we are ready to compile the lab. In a terminal, change to the lab's `producer` directory and run the following
-   command:
+6. Now we are ready to compile the lab. In a terminal, change to the lab's `producer` directory and run the class [`Producer.java`](../2.0-solution/producer-consumer/src/main/java/app/producer/Producer.java)
+   
+    ![kafka-client](02-kafka-client.png)
+    ![kafka-client](03-kafka-client.png)
 
-If you are on a Mac (or in linux), this should work:
-
-   ```shell
-   $ docker run -it --rm -v "$(cd "$PWD/../.."; pwd)":/course-root -w "/course-root/$(basename $(cd "$PWD/.."; pwd))/$(basename "$PWD")" -v "$HOME/.m2/repository":/root/.m2/repository maven:3-jdk-11 ./mvnw clean package
-   ```
-
-On a Windows machine, the `$PWD` and `pwd` commands may not work (unless you run in a Unix-compliant shell). PWD means `print current directory`. 
-
-The trick we use above is to map the directory two steps down from the current (which is where the labs are installed on your machine). 
-So say you had our labs installed in a directory called `/tmp/MyKafkaLabs`, you are now in the directory `/tmp/MyKafkaLabs/kafka-lab/labs/02-Publish-And-Subscribe`.
-The script `"$(cd "$PWD/../.."; pwd)"` simply out`puts the path two steps down from here, which would be `/tmp/MyKafkaLabs/kafka-lab`. 
-
-The next thing to look out for on a Windows machine is the use of `$HOME`. 
-This simply means your home directory. You can always replace `$HOME` with your home directory.
-
-7. With the producer now built, run it with the following command:
-
-     ```
-     $ docker run --network 02-publish-and-subscribe_default --rm -it -v "$PWD:/pwd" -w /pwd openjdk:11 java -jar target/pubsub-producer-*.jar
-     SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-     SLF4J: Defaulting to no-operation (NOP) logger implementation
-     SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-     ...
-     ```
-
-8. *Don't* stop the Kafka and Zookeeper servers because they will be used in the next lab focusing on the Consumer API.
+7. *Don't* stop the Kafka and Zookeeper servers because they will be used in the next lab focusing on the Consumer API.
 
 ### Conclusion
 
