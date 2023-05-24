@@ -8,7 +8,7 @@ services:
     ports:
       - "2182:2181"
     volumes:
-      - "zookeeper_data:/confluentinc"
+      - "./.data/zookeeper_data://var/lib/zookeeper"
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -20,9 +20,10 @@ services:
     ports:
       - "9093:9093"
     volumes:
-      - "kafka_data:/confluentinc"
+      - "./.data/kafka_lib:/var/lib/kafka"
+      - "./.data/kafka_etc:/etc/kafka"
     environment:
-      KAFKA_BROKER_ID: 1
+      KAFKA_BROKER_ID: 3
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9093
@@ -32,6 +33,10 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_JMX_PORT: 9101
       KAFKA_JMX_HOSTNAME: localhost
+      KAFKA_LOG_RETENTION_MS: 604800000
+      KAFKA_LOG_RETENTION_BYTES: 1073741824
+      KAFKA_COMPRESSION_TYPE: gzip
+      KAFKA_MESSAGE_MAX_BYTES: 1000000
     depends_on:
       - zookeeper
 
@@ -58,9 +63,3 @@ services:
     environment:
       KMAGIC_ALLOW_TOPIC_DELETE: "true"
       KMAGIC_ALLOW_SCHEMA_DELETE: "true"
-      
-volumes:
-  zookeeper_data:
-    driver: local
-  kafka_data:
-    driver: local

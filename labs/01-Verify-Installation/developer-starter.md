@@ -33,13 +33,13 @@ The first time you run this command, it will take a while to download the approp
    topic called `helloworld` with a single partition and one replica:
 
   ```
-  $ docker-compose exec kafka kafka-topics.sh --bootstrap-server :9092 --create --replication-factor 1 --partitions 1 --topic helloworld
+  $ docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --create --topic helloworld --partitions 3 --replication-factor 1
   ```
 
 4. You can now see the topic that was just created with the `--list` flag:
 
   ```
-  $ docker-compose exec kafka kafka-topics.sh --bootstrap-server :9092 --list
+  $ docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --list
 
   > helloworld
   ```
@@ -51,8 +51,8 @@ The first time you run this command, it will take a while to download the approp
    separate message. Type a few messages and leave the process running.
 
   ```
-  $ docker-compose exec kafka kafka-console-producer.sh --bootstrap-server :9092 --topic helloworld
-  
+  $ docker exec -it kafka kafka-console-producer --bootstrap-server localhost:9093 --topic helloworld
+
   > Hello world!
   > Welcome to Kafka.
   ```
@@ -63,7 +63,7 @@ The first time you run this command, it will take a while to download the approp
    will output the messages to standard out.
 
   ```
-  $ docker-compose exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic helloworld --from-beginning
+ $ docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9093 --topic helloworld
   
   > Hello world!
   > Welcome to Kafka.

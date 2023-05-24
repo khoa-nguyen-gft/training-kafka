@@ -33,7 +33,7 @@ and `labs/02-Understand-kafka-basic`
     $ docker-compose up
     ```
 
-    Access kafka-client client `http://localhost:7070/` and connect to kafka clusfer with the BootStrap Servers `kafka:9093`:
+    Access kafka-client client `http://localhost:7070/`:
 
     ![kafka-client](01-kafka-client.png)
 

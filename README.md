@@ -12,6 +12,13 @@
 
 ## 2. Kafka Server Configurations
 - Learn about the various server configurations that Kafka provides. This includes settings related to broker properties, replication factors, retention policies, compression, and message size limits. Explain how different configurations impact Kafka's performance and availability.
+    - [When do we need to config Kafka Server](labs/03-Kafka-Server-Configurations/01-when-config-kafka-server.md)
+    - [Broker Configurations](labs/03-Kafka-Server-Configurations/02-broker-configuration.md)
+    - [Replication Factors](labs/03-Kafka-Server-Configurations/03-replication-factors.md)
+    - [Retention Policies](labs/03-Kafka-Server-Configurations/04-retention-policies.md)
+    - [Compression](labs/03-Kafka-Server-Configurations/05-compression.md)
+    - [Message Size Limits](labs/03-Kafka-Server-Configurations/06-message-size-limits.md)
+
 
 ## 3. Kafka Client Configurations:
 - Explore the client-side configurations for producers and consumers. This includes properties related to producer acknowledgments, batch sizes, compression, and consumer offsets. Discuss how these configurations can optimize message production and consumption in the banking domain.
@@ -61,3 +68,4 @@
 ## References:
     - https://github.com/SciSpike/kafka-lab
     - https://www.conduktor.io/kafka/starting-kafka/
+    - https://github.com/tshaiman/kafka-workshop
