@@ -2,6 +2,11 @@
 
 - You typically need to configure Kafka server properties when you set up a Kafka cluster or when you want to customize the default behavior of Kafka to align with your specific use case. Here are some scenarios where configuring Kafka server properties becomes necessary:
 
+
+![image](./01-kafka-servier-configuration.png)
+
+**Note**: you can access into `http://localhost:7070` to get more detail of kafa server configuration.
+
 ## 1. Initial Kafka Cluster Setup
 
 - When setting up a new Kafka cluster, you need to configure various broker properties to define the unique identities of each broker, network listeners, replication factors, and other essential settings. These configurations are essential for establishing a functional Kafka cluster.
