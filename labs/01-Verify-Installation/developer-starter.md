@@ -23,8 +23,8 @@ Make sure that you can run both the `docker` and `docker-compose` command from t
 
 2. Start the Kafka and Zookeeper processes using Docker Compose:
 
-  ```
-  $ docker-compose up
+  ```cmd
+  docker-compose up
   ```
 
 The first time you run this command, it will take a while to download the appropriate Docker images.
@@ -32,15 +32,16 @@ The first time you run this command, it will take a while to download the approp
 3. Open an additional terminal window in the lesson directory, `labs/01-Verify-Installation`. We are going to create a
    topic called `helloworld` with a single partition and one replica:
 
-  ```
-  $ docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --create --topic helloworld --partitions 3 --replication-factor 1
+  ```cmd
+  docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --create --topic helloworld --partitions 3 --replication-factor 1
   ```
 
 4. You can now see the topic that was just created with the `--list` flag:
 
-  ```
-  $ docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --list
-
+  ```cmd
+  docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --list
+   ```
+   ```
   > helloworld
   ```
 
@@ -50,9 +51,10 @@ The first time you run this command, it will take a while to download the approp
    line _producer_ client that can be used for testing purposes. Each line from standard input will be treated as a
    separate message. Type a few messages and leave the process running.
 
-  ```
-  $ docker exec -it kafka kafka-console-producer --bootstrap-server localhost:9093 --topic helloworld
-
+  ```cmd
+  docker exec -it kafka kafka-console-producer --bootstrap-server localhost:9093 --topic helloworld
+   ```
+   ```cmd
   > Hello world!
   > Welcome to Kafka.
   ```
@@ -62,9 +64,10 @@ The first time you run this command, it will take a while to download the approp
 6. Open another terminal window in the lesson directory. In this window, we can use Kafka's command line _consumer_ that
    will output the messages to standard out.
 
+  ```cmd
+ docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9093 --topic helloworld
   ```
- $ docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9093 --topic helloworld
-  
+  ```
   > Hello world!
   > Welcome to Kafka.
   ```
@@ -82,8 +85,8 @@ The first time you run this command, it will take a while to download the approp
 
 9. Finally, stop the Kafka and Zookeeper servers with Docker Compose:
 
-   ```
-   $ docker-compose down
+   ```cmd
+   docker-compose down
    ```
 
 Congratulations, this lab is complete!
