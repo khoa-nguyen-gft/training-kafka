@@ -37,6 +37,8 @@ services:
       KAFKA_LOG_RETENTION_BYTES: 1073741824
       KAFKA_COMPRESSION_TYPE: gzip
       KAFKA_MESSAGE_MAX_BYTES: 1000000
+      KAFKA_NUM_PARTITIONS: 3  # Number of partitions for new topics
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 2  # Default replication factor for new topics
     depends_on:
       - zookeeper
 
