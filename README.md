@@ -22,6 +22,10 @@
 
 ## 3. Kafka Client Configurations:
 - Explore the client-side configurations for producers and consumers. This includes properties related to producer acknowledgments, batch sizes, compression, and consumer offsets. Discuss how these configurations can optimize message production and consumption in the banking domain.
+    - [When Configuring Kafka Client](labs/04-Kafka-Client-Configurations/01-when-config-kafka-client.md)
+    - [Producer Configurations](labs/04-Kafka-Client-Configurations/02-producer-configurations.md)
+    - [Consumer Configurations](labs/04-Kafka-Client-Configurations/03-consumer-configurations.md)
+
 
 ## 4. Authentication Mechanisms:
 - Dive into the different authentication and security mechanisms available in Kafka. This includes SSL/TLS encryption, SASL (Simple Authentication and Security Layer), and integration with external identity providers like LDAP or Kerberos. Explain the importance of secure communication and access control in the banking domain.
