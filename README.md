@@ -1,13 +1,13 @@
 # Kafka for Banking: Server Configurations, Authentication, and Performance Optimization
 
 ## Setup:
-- [Developer Starter](labs/01-Verify-Installation/developer-starter.md) contains everything needed in order to get started Kafka.
+- [Developer Starter](labs/01-Verify-Installation) contains everything needed in order to get started Kafka.
 
 ## 1. Understand Kafka Basics
 - Familiarize yourself with the fundamental concepts of Apache Kafka, such as topics, partitions, producers, consumers, and brokers. Ensure you have a good understanding of how Kafka handles data ingestion and distribution.
-    - [Kafka Overview](labs/02-Understand-kafka-basic/2.1-overview-kafka/apache-kafka.md)
-    - [Brokers, Topics and Partitions](labs/02-Understand-kafka-basic/2.2-components/topics-and-partitions.md)
-    - [Producers and Consumers](labs/02-Understand-kafka-basic/2.3-producer-consumer/producers-and-consumers.md)
+    - [Kafka Overview](labs/02-Understand-kafka-basic/2.1-overview-kafka)
+    - [Brokers, Topics and Partitions](labs/02-Understand-kafka-basic/2.2-components)
+    - [Producers and Consumers](labs/02-Understand-kafka-basic/2.3-producer-consumer)
 
 
 ## 2. Kafka Server Configurations
