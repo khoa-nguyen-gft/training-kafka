@@ -1,3 +1,4 @@
+
 # Developer Starter, Kafka
 
 In this lab, you will install Kafka with Docker and verify it is working by creating a topic and sending some messages.
