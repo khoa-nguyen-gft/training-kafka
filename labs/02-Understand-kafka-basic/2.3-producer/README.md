@@ -35,7 +35,7 @@ and `labs/02-Understand-kafka-basic`
 
     Access kafka-client client `http://localhost:7070/`:
 
-    ![kafka-client](01-kafka-client.png)
+    ![kafka-client](./images/01-kafka-client.png)
 
 3. Open an additional terminal window in the lesson directory.
 
@@ -84,8 +84,8 @@ and `labs/02-Understand-kafka-basic`
 
 6. Now we are ready to compile the lab. In a terminal, change to the lab's `producer` directory and run the class [`Producer.java`](../2.0-solution/producer-consumer/src/main/java/app/producer/Producer.java)
    
-    ![kafka-client](02-kafka-client.png)
-    ![kafka-client](03-kafka-client.png)
+    ![kafka-client](./images/02-kafka-client.png)
+    ![kafka-client](./images/03-kafka-client.png)
 
 7. *Don't* stop the Kafka and Zookeeper servers because they will be used in the next lab focusing on the Consumer API.
 

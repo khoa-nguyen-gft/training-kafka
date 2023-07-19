@@ -65,7 +65,7 @@ that should be explored for a production environment.
 
 5. Now we are ready to compile and run the lab. In a terminal, change to the `lab` directory and run the java code.
 
-   ![kafka-client](04-kafka-client.png)
+   ![kafka-client](./images/04-kafka-client.png)
 
 6. [OPTIONAL] Play with the performance.
    Before we shut down Kafka, you may want to spend some time playing with the perfomance of the programs. 

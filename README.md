@@ -7,17 +7,35 @@
 - Familiarize yourself with the fundamental concepts of Apache Kafka, such as topics, partitions, producers, consumers, and brokers. Ensure you have a good understanding of how Kafka handles data ingestion and distribution.
     - [Kafka Overview](labs/02-Understand-kafka-basic/2.1-overview-kafka)
     - [Brokers, Topics and Partitions](labs/02-Understand-kafka-basic/2.2-components)
-    - [Producers and Consumers](labs/02-Understand-kafka-basic/2.3-producer-consumer)
+    - [Producers](labs/02-Understand-kafka-basic/2.3-producer/)
+    - [Consumers](labs/02-Understand-kafka-basic/2.4-consumer/)
 
 
-## 2. Kafka Server Configurations
-- Learn about the various server configurations that Kafka provides. This includes settings related to broker properties, replication factors, retention policies, compression, and message size limits. Explain how different configurations impact Kafka's performance and availability.
-    - [When Configuring Kafka Server](labs/03-Kafka-Server-Configurations/01-when-config-kafka-server.md)
-    - [Broker Configurations](labs/03-Kafka-Server-Configurations/02-broker-configuration.md)
-    - [Replication Factors](labs/03-Kafka-Server-Configurations/03-replication-factors.md)
+## 2. Kafka Configurations
+- Kafka configuration refers to the various settings and parameters that can be customized to control the behavior of the Apache Kafka messaging system. These configurations are specified in the form of key-value pairs and are used to fine-tune the Kafka components to meet specific requirements, performance goals, and operational needs:
+    + Server Configurations
+        - [Broker Configurations](labs/03-Kafka-Configurations/01-Server-configuration/01-broker-configuration)
+        - [Replication Factor](labs/03-Kafka-Configurations/01-Server-configuration/02-replication-factors/)
+        - [ISR-In-Sync Replicas](labs/03-Kafka-Configurations/01-Server-configuration/03-isr)
+
+    + Producer Configurations
+    + Consumer Configurations
+
+
+
+
+    
+
     - [Retention Policies](labs/03-Kafka-Server-Configurations/04-retention-policies.md)
     - [Compression](labs/03-Kafka-Server-Configurations/05-compression.md)
     - [Message Size Limits](labs/03-Kafka-Server-Configurations/06-message-size-limits.md)
+
+
+
+
+
+
+
 
 
 ## 3. Kafka Client Configurations:
