@@ -1,6 +1,6 @@
 # Apache Kafka
 
-![Apache Kafka](apache-kafka-partitions-topics.png)
+![Apache Kafka](./images/apache-kafka-partitions-topics.png)
 
    - **Apache Kafka** is an open-source distributed streaming platform that was originally developed at LinkedIn and later donated to the Apache Software Foundation. 
 
