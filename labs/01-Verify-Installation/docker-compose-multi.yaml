@@ -1,0 +1,110 @@
+version: "2"
+
+services:
+  zookeeper:
+    hostname: zookeeper
+    container_name: zookeeper
+    image: confluentinc/cp-zookeeper:6.2.1
+    ports:
+      - "12181:2181"
+    volumes:
+      - "zookeeper_data:/confluentinc"
+    environment:
+      ZOOKEEPER_MY_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+  
+  # zookeeper-2:
+  #   hostname: zookeeper-2
+  #   container_name: zookeeper-2
+  #   image: confluentinc/cp-zookeeper:6.2.1
+  #   ports:
+  #     - "12182:2182"
+  #   volumes:
+  #     - "zookeeper_data:/confluentinc"
+  #   environment:
+  #     ZOOKEEPER_MY_ID: 2
+  #     ZOOKEEPER_CLIENT_PORT: 2182
+  #     ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    hostname: kafka
+    container_name: kafka
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - "9091:9091"
+    volumes:
+      - "kafka_data:/confluentinc"
+    restart: always
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29091,PLAINTEXT_HOST://127.0.0.1:9091
+    depends_on:
+      - zookeeper
+
+  kafka-2:
+    hostname: kafka-2
+    container_name: kafka-2
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - "9092:9092"
+    volumes:
+      - "kafka_data:/confluentinc"
+    restart: always
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:29091,PLAINTEXT_HOST://127.0.0.1:9092
+    depends_on:
+      - zookeeper
+
+  # kafka-3:
+  #   hostname: kafka-3
+  #   container_name: kafka-3
+  #   image: confluentinc/cp-kafka:latest
+  #   ports:
+  #     - "9093:9093"
+  #   volumes:
+  #     - "kafka_data:/confluentinc"
+  #   restart: always
+  #   environment:
+  #     KAFKA_BROKER_ID: 3
+  #     KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+  #     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:29091,PLAINTEXT_HOST://127.0.0.1:9093
+  #   depends_on:
+  #     - zookeeper
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    hostname: kafka-ui
+    container_name: kafka-ui
+    restart: always
+    depends_on:
+      - kafka
+      - kafka-2
+      - zookeeper
+    ports:
+      - "7070:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: 'kafka:29091,kafka-2:29091,kafka-3:29091'
+
+  magic:
+    image: digitsy/kafka-magic
+    hostname: magic
+    container_name: magic
+    ports:
+      - "7071:80"
+    environment:
+      KMAGIC_ALLOW_TOPIC_DELETE: "true"
+      KMAGIC_ALLOW_SCHEMA_DELETE: "true"
+      
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local

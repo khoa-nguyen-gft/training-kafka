@@ -22,7 +22,6 @@ services:
 
     volumes:
        - "./.data/kafka_etc:/etc/kafka"
-
 ```
 
 

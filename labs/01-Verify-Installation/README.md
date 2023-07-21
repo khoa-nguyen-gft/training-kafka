@@ -34,17 +34,33 @@ The first time you run this command, it will take a while to download the approp
    topic called `helloworld` with a single partition and one replica:
 
   ```cmd
-  docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --create --topic helloworld --partitions 3 --replication-factor 1
+  docker exec -it kafka kafka-topics \
+  --bootstrap-server 127.0.0.1:9091 \
+  --create --topic helloworld \
+  --partitions 2 \
+  --replication-factor 2
   ```
 
 4. You can now see the topic that was just created with the `--list` flag:
 
   ```cmd
-  docker exec -it kafka kafka-topics --bootstrap-server localhost:9093 --list
+  docker exec -it kafka kafka-topics --bootstrap-server localhost:9091 --list
    ```
    ```
   > helloworld
   ```
+
+
+  ```cmd
+  docker exec -it kafka kafka-topics --bootstrap-server localhost:9091 --describe
+   ```
+   ```
+Topic: helloworld       TopicId: cxPt_ez3QLWTqYxWMWkHEQ PartitionCount: 3       ReplicationFactor: 2    Configs: 
+        Topic: helloworld       Partition: 0    Leader: 1       Replicas: 1,2   Isr: 1,2
+        Topic: helloworld       Partition: 1    Leader: 2       Replicas: 2,1   Isr: 2,1
+        Topic: helloworld       Partition: 2    Leader: 1       Replicas: 1,2   Isr: 1,2
+  ```
+
 
 > NOTE: If you see `__consumer_offsets`, it is an administrative topic automatically created by Kafka itself.
 
@@ -53,7 +69,7 @@ The first time you run this command, it will take a while to download the approp
    separate message. Type a few messages and leave the process running.
 
   ```cmd
-  docker exec -it kafka kafka-console-producer --bootstrap-server localhost:9093 --topic helloworld
+  docker exec -it kafka kafka-console-producer --bootstrap-server localhost:9091 --topic helloworld
    ```
    ```cmd
   > Hello world!
@@ -66,7 +82,7 @@ The first time you run this command, it will take a while to download the approp
    will output the messages to standard out.
 
   ```cmd
- docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9093 --topic helloworld
+ docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9091 --topic helloworld
   ```
   ```
   > Hello world!
