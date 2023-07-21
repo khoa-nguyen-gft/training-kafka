@@ -13,19 +13,6 @@ services:
       ZOOKEEPER_MY_ID: 1
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-  
-  # zookeeper-2:
-  #   hostname: zookeeper-2
-  #   container_name: zookeeper-2
-  #   image: confluentinc/cp-zookeeper:6.2.1
-  #   ports:
-  #     - "12182:2182"
-  #   volumes:
-  #     - "zookeeper_data:/confluentinc"
-  #   environment:
-  #     ZOOKEEPER_MY_ID: 2
-  #     ZOOKEEPER_CLIENT_PORT: 2182
-  #     ZOOKEEPER_TICK_TIME: 2000
 
   kafka:
     hostname: kafka
@@ -51,7 +38,7 @@ services:
     ports:
       - "9092:9092"
     volumes:
-      - "kafka_data:/confluentinc"
+      - "kafka_data_2:/confluentinc"
     restart: always
     environment:
       KAFKA_BROKER_ID: 2
@@ -60,23 +47,27 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:29091,PLAINTEXT_HOST://127.0.0.1:9092
     depends_on:
       - zookeeper
+      - kafka
 
-  # kafka-3:
-  #   hostname: kafka-3
-  #   container_name: kafka-3
-  #   image: confluentinc/cp-kafka:latest
-  #   ports:
-  #     - "9093:9093"
-  #   volumes:
-  #     - "kafka_data:/confluentinc"
-  #   restart: always
-  #   environment:
-  #     KAFKA_BROKER_ID: 3
-  #     KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-  #     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:29091,PLAINTEXT_HOST://127.0.0.1:9093
-  #   depends_on:
-  #     - zookeeper
+  
+  kafka-3:
+    hostname: kafka-3
+    container_name: kafka-3
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - "9093:9093"
+    volumes:
+      - "kafka_data_3:/confluentinc"
+    restart: always
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:29091,PLAINTEXT_HOST://127.0.0.1:9093
+    depends_on:
+      - zookeeper
+      - kafka
+      - kafka-2
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
@@ -86,6 +77,7 @@ services:
     depends_on:
       - kafka
       - kafka-2
+      - kafka-3
       - zookeeper
     ports:
       - "7070:8080"
@@ -98,7 +90,7 @@ services:
     hostname: magic
     container_name: magic
     ports:
-      - "7071:80"
+      - "9090:80"
     environment:
       KMAGIC_ALLOW_TOPIC_DELETE: "true"
       KMAGIC_ALLOW_SCHEMA_DELETE: "true"
@@ -107,4 +99,8 @@ volumes:
   zookeeper_data:
     driver: local
   kafka_data:
+    driver: local
+  kafka_data_2:
+    driver: local
+  kafka_data_3:
     driver: local

@@ -38,7 +38,7 @@ The first time you run this command, it will take a while to download the approp
   --bootstrap-server 127.0.0.1:9091 \
   --create --topic helloworld \
   --partitions 2 \
-  --replication-factor 2
+  --replication-factor 3
   ```
 
 4. You can now see the topic that was just created with the `--list` flag:
