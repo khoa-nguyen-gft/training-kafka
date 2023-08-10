@@ -1,17 +1,15 @@
-# Ignore compiled output
-/build/
-/dist/
-
-# Ignore dependencies
-/node_modules/
-
-# Ignore log files
-*.log
-
-# Ignore editor files
-.vscode/
 .idea/
+.vscode/
+.DS_Store
+out
+out/*
 
+*/*/stubs/framlWiremock
 
-labs/01-Verify-Installation/.data/
-labs/03-Kafka-Server-Configurations/.data/
+/*/KafkaMagicConfig.*
+/*/*/KafkaMagicConfig.*
+
+O50_system_design/books/volumne2 system design interview.pdf
+
+/*/*/bazel-*
+/*/*/*/bazel-*

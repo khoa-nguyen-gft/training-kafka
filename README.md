@@ -1,93 +1,17 @@
-# Kafka for Banking: Server Configurations, Authentication, and Performance Optimization
 
-## Setup:
-- [Developer Starter](labs/01-Verify-Installation) contains everything needed in order to get started Kafka.
+## [Messaging: Kafka](./O10_messaging_kafka/)
+- Kafka is an open-source distributed streaming platform developed by the Apache Software Foundation. It is designed to handle real-time data streams and offers a high-throughput, fault-tolerant, and scalable solution for processing, storing, and distributing data across multiple systems or applications. Kafka is commonly used for building real-time data pipelines and streaming applications.
 
-## 1. Understand Kafka Basics
-- Familiarize yourself with the fundamental concepts of Apache Kafka, such as topics, partitions, producers, consumers, and brokers. Ensure you have a good understanding of how Kafka handles data ingestion and distribution.
-    - [Kafka Overview](labs/02-Understand-kafka-basic/2.1-overview-kafka)
-    - [Brokers, Topics and Partitions](labs/02-Understand-kafka-basic/2.2-components)
-    - [Producers](labs/02-Understand-kafka-basic/2.3-producer/)
-    - [Consumers](labs/02-Understand-kafka-basic/2.4-consumer/)
+![img.png](/images/kafka.png)
+   
+   - **[Kafka Slides](./O10_messaging_kafka/21072023-01-kafka.pptx)**
 
+   - **Kafka Native:**
+      1) [Demo Kafka with CLI](./O10_messaging_kafka/O02_kafka_001_CLI)
+      2) [Demo Kafka Native](./O10_messaging_kafka/O02_kafka_002_kafka_native) 
+      3) [Demo kafka native with transaction](/O10_messaging_kafka/O02_kafka_005_kafka_native_transaction/)
 
-## 2. Kafka Configurations
-- Kafka configuration refers to the various settings and parameters that can be customized to control the behavior of the Apache Kafka messaging system. These configurations are specified in the form of key-value pairs and are used to fine-tune the Kafka components to meet specific requirements, performance goals, and operational needs:
-    + Server Configurations
-        - [Broker Configurations](labs/03-Kafka-Configurations/01-Server-configuration/01-broker-configuration)
-        - [Replication Factor](labs/03-Kafka-Configurations/01-Server-configuration/02-replication-factors/)
-        - [ISR-In-Sync Replicas](labs/03-Kafka-Configurations/01-Server-configuration/03-isr)
-
-    + Producer Configurations
-    + Consumer Configurations
-
-
-
-
-    
-
-    - [Retention Policies](labs/03-Kafka-Server-Configurations/04-retention-policies.md)
-    - [Compression](labs/03-Kafka-Server-Configurations/05-compression.md)
-    - [Message Size Limits](labs/03-Kafka-Server-Configurations/06-message-size-limits.md)
-
-
-
-
-
-
-
-
-
-## 3. Kafka Client Configurations:
-- Explore the client-side configurations for producers and consumers. This includes properties related to producer acknowledgments, batch sizes, compression, and consumer offsets. Discuss how these configurations can optimize message production and consumption in the banking domain.
-    - [When Configuring Kafka Client](labs/04-Kafka-Client-Configurations/01-when-config-kafka-client.md)
-    - [Producer Configurations](labs/04-Kafka-Client-Configurations/02-producer-configurations.md)
-    - [Consumer Configurations](labs/04-Kafka-Client-Configurations/03-consumer-configurations.md)
-
-
-## 4. Authentication Mechanisms:
-- Dive into the different authentication and security mechanisms available in Kafka. This includes SSL/TLS encryption, SASL (Simple Authentication and Security Layer), and integration with external identity providers like LDAP or Kerberos. Explain the importance of secure communication and access control in the banking domain.
-    + Authentication and authorization
-    + SSL encryption and TLS configuration
-    + Securing inter-broker communication
-    + Access control lists (ACLs)
-    + Security best practices
-
-## 5. Throughput and Performance Optimization:
-- Discuss strategies to optimize Kafka's throughput and performance in the banking domain. Explore techniques such as partitioning, message compression, batching, and tuning the various Kafka parameters to achieve higher throughput and lower latency. Highlight the considerations specific to the banking industry, such as handling high-volume transactions and real-time data processing.
-    + Understanding Kafka's throughput and performance characteristics
-    + Tuning Kafka for optimal performance
-    + Managing producer and consumer performance
-    + Monitoring and optimizing Kafka cluster performance
-    + Benchmarking and load testing Kafka deployments
-
-## 6. Monitoring and Troubleshooting:
-- Cover the tools and techniques available for monitoring Kafka clusters and troubleshooting performance issues. Explore metrics and monitoring frameworks such as JMX, Kafka Connect, and third-party solutions. Highlight the importance of monitoring in ensuring Kafka's reliability and performance in banking environments.
-    + Monitoring Kafka cluster health and performance
-    + Log management and retention
-    + Cluster rebalancing and partition reassignment
-    + Troubleshooting common issues
-    + Capacity planning and scalability
-
-## 8. Use Case Analysis in Banking Architecture:
-- Analyze specific use cases within the banking domain that require high throughput and performance from Kafka. For example, real-time transaction processing, fraud detection, or risk management. Discuss the architectural considerations, data flow patterns, and best practices for deploying Kafka in such scenarios.
-    + Overview of Kafka's role in banking systems
-    + Use cases for Kafka in banking, such as real-time data processing, event sourcing, and audit logs
-    + Design considerations for building a Kafka-based banking architecture
-    + Integration patterns with core banking systems, payment gateways, and other financial services
-    + Ensuring data consistency and reliability in banking workflows
-    + Compliance and regulatory considerations in Kafka deployments for banking
-    + Case studies or examples of Kafka implementations in banking environments
-
-## 9. Advanced Kafka Concepts
-- Exactly-once processing semantics with transactional producers and consumers
-- Kafka Streams interactive queries and state stores
-- Schema management with Apache Avro and the Confluent Schema Registry
-- Log compaction and compacted topics
-- Kafka Cluster management tools (e.g., Confluent Control Center, Kafka Manager)
-
-
-## References:
-    - https://github.com/SciSpike/kafka-lab
-    - https://www.conduktor.io/kafka/starting-kafka/
-    - https://github.com/tshaiman/kafka-workshop
+   - **Kafka with Spring Boot:**
+   
+      2) [Demo kafka native with Spring Framework](/O10_messaging_kafka/O02_kafka_003_kafka_native_with_spring/)
+      3) [Demo kafka native with Spring Framework in loop](/O10_messaging_kafka/O02_kafka_004_kafka_native_with_spring_in_loop/)
